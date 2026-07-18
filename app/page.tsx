@@ -42,7 +42,7 @@ export default function Home() {
 
         <section className="about">
           <h2>เกี่ยวกับฉัน</h2>
-          <p>[เขียนแนะนำตัวสั้นๆ 2-3 ประโยค]</p>
+          <p>สวัสดีครับ ผมชื่อ ธนดิลกชัย ครุฑพุ่ม ชื่อเล่น แต้มครับ อายุ21ปีครับ</p>
         </section>
 
         <section className="skills">
@@ -51,19 +51,19 @@ export default function Home() {
           <div className="skill-group">
             <h3 className="skill-subtitle">Hard Skills</h3>
             <ul className="skill-list">
-              <li>[HTML]</li>
-              <li>[CSS]</li>
-              <li>[JavaScript]</li>
-              <li>[Next.js]</li>
-              <li>[Tailwind CSS]</li>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>Next.js</li>
+              <li>Tailwind CSS</li>
             </ul>
           </div>
           <div className="skill-group">
             <h3 className="skill-subtitle">Tools</h3>
             <ul className="skill-list tools">
-              <li>[Github]</li>
-              <li>[Figma]</li>
-              <li>[Vercel]</li>
+              <li>Github</li>
+              <li>Figma</li>
+              <li>Vercel</li>
             </ul>
           </div>
           <div className="skill-group">
