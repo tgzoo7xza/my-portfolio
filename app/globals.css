@@ -1,26 +1,290 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ธีมสว่าง — โทนเขียวเซจนุ่มตา อบอุ่น เป็นทางการแต่ไม่แข็ง */
+.page[data-theme="light"] {
+  --bg: #f2f8f6;          /* พื้นเรียบสีมินต์อ่อนมากๆ นิ่งกว่า gradient */
+  --surface: #ffffff;
+  --text: #1a2e2a;
+  --text-muted: #486059;  /* เข้มขึ้นเล็กน้อย เพิ่ม contrast ให้อ่านง่ายขึ้น */
+  --accent: #2d5a50;
+  --accent-soft: #e2f7f3;
+  --border: #cee7e2;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ธีมมืด — เขียวเข้มอมดำ ไม่จี๊ดตา */
+.page[data-theme="dark"] {
+  --bg: #16211d;
+  --surface: #1f2e28;
+  --text: #e7ede9;
+  --text-muted: #9fb3aa;
+  --accent: #6fbfa6;
+  --accent-soft: #24382f;
+  --border: #2c3f37;
+}
+
+.page {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 "Segoe UI", sans-serif;
+  transition: background 0.3s, color 0.3s; /* shorthand: property duration */
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px 60px 20px;
+  position: relative;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.theme-toggle:hover {
+  background: var(--accent-soft);
+  transform: scale(1.05);
+}
+
+.hero {
+  text-align: center;
+  border-bottom: 2px solid var(--border);
+  padding: 0 0 30px 0;
+  margin: 0 0 30px 0;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  border: 3px solid var(--accent-soft);
+  object-fit: cover;
+  margin: 0 0 16px 0;
+}
+
+.hero h1 {
+  font: 700 32px/1.2 "Segoe UI", sans-serif;
+}
+
+.role {
+  color: var(--text-muted);
+  margin: 8px 0 0 0;
+}
+
+section {
+  margin: 0 0 30px 0;
+}
+
+section h2 {
+  font: 600 20px/1.4 sans-serif;
+  color: var(--accent);
+  margin: 0 0 12px 0;
+  padding: 0 0 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.about p,
+.contact p {
+  color: var(--text);
+}
+
+.contact p {
+  margin: 0 0 6px 0;
+}
+
+.skill-list {
+  list-style: none;
+  padding: 0;
+}
+
+.skill-list li {
+  display: inline-block;
+  background: var(--accent);
+  color: #ffffff;
+  padding: 6px 14px;
+  margin: 0 8px 8px 0;
+  border-radius: 20px;
+  font-size: 14px;
+}
+.link-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.link-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.link-btn:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.link-btn.resume {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+}
+
+.link-btn.resume:hover {
+  opacity: 0.9;
+  background: var(--accent);
+}
+
+/* ==== Experience (Timeline) ==== */
+.timeline-item {
+  border-left: 2px solid var(--accent-soft);
+  padding: 0 0 20px 16px;
+  margin: 0 0 4px 0;
+}
+
+.timeline-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+}
+
+.timeline-head h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.timeline-date {
+  font-size: 13px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.timeline-company {
+  color: var(--accent);
+  font-size: 14px;
+  margin: 2px 0 6px 0;
+}
+
+/* ==== Projects (Grid) ==== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* shorthand: 2 คอลัมน์เท่ากัน */
+  gap: 12px;
+}
+
+.project-card {
+  display: block;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+
+.project-card h3 {
+  font-size: 15px;
+  color: var(--accent);
+  margin: 0 0 6px 0;
+}
+
+.project-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* จอเล็ก ให้การ์ดผลงานเรียงคอลัมน์เดียว */
+@media (max-width: 500px) {
+  .project-grid {
+    grid-template-columns: 1fr;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.skill-group {
+  margin: 0 0 18px 0;
+}
+
+.skill-group:last-child {
+  margin: 0;
+}
+
+.skill-subtitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 8px 0;
+}
+
+/* badge สี soft skill ให้ต่างจาก hard skill เล็กน้อย เพื่อแยกสายตาง่ายขึ้น */
+.skill-list.soft li {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+/* badge สี tools ให้เป็นสไตล์ที่ 3 แยกจาก hard/soft skill */
+.skill-list.tools li {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid transparent;
+}
+
+/* ปรับสำหรับจอมือถือ (กว้างไม่เกิน 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 60px 16px 40px 16px; /* เผื่อพื้นที่ด้านบนให้ปุ่มธีมไม่ทับหัวข้อ */
+  }
+
+  .theme-toggle {
+    top: 16px;
+    right: 16px;
+  }
+
+  .hero h1 {
+    font-size: 24px; /* ลดขนาดชื่อ ไม่ให้ล้นจอเล็ก */
+  }
+
+  .timeline-head {
+    flex-direction: column; /* วางตำแหน่งงาน/วันที่ ให้ซ้อนกันแทนเรียงข้าง */
+    align-items: flex-start;
+  }
+
+  .link-grid {
+    flex-direction: column; /* ปุ่มลิงก์เรียงเป็นแถวเดียวแนวตั้ง กดง่ายกว่า */
+  }
+
+  .link-btn {
+    justify-content: center;
+  }
 }
