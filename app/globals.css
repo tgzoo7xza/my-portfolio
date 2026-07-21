@@ -6,13 +6,13 @@
 
 /* ธีมสว่าง — โทนเขียวเซจนุ่มตา อบอุ่น เป็นทางการแต่ไม่แข็ง */
 .page[data-theme="light"] {
-  --bg: #f2f8f6;          /* พื้นเรียบสีมินต์อ่อนมากๆ นิ่งกว่า gradient */
-  --surface: #ffffff;
-  --text: #1a2e2a;
-  --text-muted: #486059;  /* เข้มขึ้นเล็กน้อย เพิ่ม contrast ให้อ่านง่ายขึ้น */
-  --accent: #2d5a50;
-  --accent-soft: #e2f7f3;
-  --border: #cee7e2;
+  --bg: #d1f4e8;
+  --surface: #f0faf7;     
+  --text: #0f2420;        
+  --text-muted: #3a534c;  
+  --accent: #1e463d;      
+  --accent-soft: #bcece0; 
+  --border: #b5ded3;      
 }
 
 /* ธีมมืด — เขียวเข้มอมดำ ไม่จี๊ดตา */
