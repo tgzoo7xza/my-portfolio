@@ -3,181 +3,313 @@
 import { useState } from "react";
 import Image from "next/image";
 
+const LANGS = [
+  { code: "th", name: "ภาษาไทย", level: "ดีมาก", pct: 100 },
+  { code: "en", name: "ภาษาอังกฤษ", level: "พอใช้", pct: 50 },
+];
+
+const GUTTER_LINES = Array.from({ length: 113 }, (_, i) => i + 1);
+
+function Bar({ pct }: { pct: number }) {
+  const total = 20;
+  const filled = Math.round((pct / 100) * total);
+  return (
+    <span className="bar-ascii">
+      {"█".repeat(filled)}
+      {"░".repeat(total - filled)}
+    </span>
+  );
+}
+
 export default function Home() {
   const [theme, setTheme] = useState("light");
-
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
+  const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
 
   return (
-    <div className="page" data-theme={theme}>
-      <main className="container">
-        <button className="theme-toggle" onClick={toggleTheme}>
-          {theme === "light" ? (
-            // ไอคอนพระจันทร์ (กดแล้วจะเปลี่ยนเป็นมืด)
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-            </svg>
-          ) : (
-            // ไอคอนพระอาทิตย์ (กดแล้วจะเปลี่ยนเป็นสว่าง)
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="12" cy="12" r="5" />
-              <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
-            </svg>
-          )}
-        </button>
+    <div className="ide" data-theme={theme}>
+      <header className="ide-titlebar">
+        <nav className="ide-tabs">
+          <a className="ide-tab" href="#home">หน้าแรก</a>
+          <a className="ide-tab" href="#about">เกี่ยวกับฉัน</a>
+          <a className="ide-tab" href="#skills">ทักษะ</a>
+          <a className="ide-tab" href="#soft-skills">ทักษะการทำงาน</a>
+          <a className="ide-tab" href="#education">การศึกษา</a>
+          <a className="ide-tab" href="#goals">เป้าหมาย</a>
+          <a className="ide-tab" href="#experience">ประสบการณ์</a>
+          <a className="ide-tab" href="#projects">ผลงาน</a>
+          <a className="ide-tab" href="#contact">ติดต่อฉัน</a>
+        </nav>
+      </header>
 
-        <section className="hero">
-          <Image
-            src="/T1.jpg"
-            alt="รูปโปรไฟล์"
-            width={120}
-            height={120}
-            className="profile-pic"
-          />
-          <h1>สวัสดีครับ</h1>
-          {/* <p className="role">นักศึกษา</p> */}
-        </section>
+      <div className="ide-body">
+        <aside className="gutter" aria-hidden="true">
+          {GUTTER_LINES.map((n) => (
+            <span key={n}>{n}</span>
+          ))}
+        </aside>
 
-        <section className="about">
-          <h2>เกี่ยวกับฉัน</h2>
-          <p>สวัสดีครับ ผมชื่อ นาย ธนดิลกชัย ครุฑพุ่ม หรือเรียกสั้น ๆ ว่า แต้ม
-            ปัจจุบันกำลังศึกษาระดับปริญญาตรี สาขาวิทยาการคอมพิวเตอร์ 
-            มหาวิทยาลัยราชภัฏพระนคร ผมมีความสนใจในการพัฒนาเว็บไซต์ทั้งฝั่ง Front-end และ Back-end 
-            ผมพร้อมเปิดรับความคิดเห็นของทุกคน พร้อมเรียนรู้จากประสบการณ์ใหม่ ๆ สามารถปรับตัวให้เข้ากับการทำงานร่วมกับผู้อื่นได้ดี 
-            และหวังว่าการฝึกงานครั้งนี้จะทำให้ผมพัฒนาตัวได้อีกขั้นนึงครับ</p> 
-        </section>
+        <main className="ide-main">
+          <section id="home" className="block hero">
+            {/* <p className="code-comment">// home.tsx</p> */}
+            <Image
+              src="/T1.jpg"
+              alt="รูปโปรไฟล์"
+              width={104}
+              height={104}
+              className="avatar"
+            />
+            <h1>
+              {/* <span className="kw">const</span> <span className="var">ผู้พัฒนา</span>{" "} */}
+              {/* <span className="op">=</span>  */}
+              <span className="str">สวัสดีครับ</span>
+            </h1>
+            <p className="prompt-line">
+              นักศึกษาฝึกงาน / สาขาวิทยาการคอมพิวเตอร์{" "}
+              <span className="cursor-blink">▊</span>
+            </p>
+          </section>
 
-        <section className="skills">
-          <h2>ทักษะ</h2>
+          <section id="about" className="block">
+            {/* <p className="code-comment">// about.tsx</p> */}
+            <h2>เกี่ยวกับฉัน</h2>
+            <p className="template-string">
+              <span className="tick">`</span>
+              สวัสดีครับ ผมชื่อ นาย ธนดิลกชัย ครุฑพุ่ม หรือเรียกสั้น ๆ ว่า แต้มครับ
+              ปัจจุบันกำลังศึกษาระดับปริญญาตรี สาขาวิทยาการคอมพิวเตอร์
+              มหาวิทยาลัยราชภัฏพระนคร ผมมีความสนใจในการพัฒนาเว็บไซต์ทั้งฝั่ง
+              Front-end และ Back-end ผมพร้อมเปิดรับความคิดเห็นของทุกคน
+              พร้อมเรียนรู้จากประสบการณ์ใหม่ ๆ
+              สามารถปรับตัวให้เข้ากับการทำงานร่วมกับผู้อื่นได้ดี
+              และหวังว่าการฝึกงานครั้งนี้จะทำให้ผมพัฒนาตัวได้อีกขั้นนึงครับ
+              <span className="tick">`</span>
+            </p>
+          </section>
 
-          <div className="skill-group">
-            <h3 className="skill-subtitle">Skills</h3>
-            <ul className="skill-list">
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>JavaScript</li>
-              <li>Next.js</li>
-              <li>Tailwind CSS</li>
-              <li>Vue.js</li>
-            </ul>
-          </div>
-          <div className="skill-group">
-            <h3 className="skill-subtitle">Tools</h3>
-            <ul className="skill-list tools">
-              <li>Github</li>
-              <li>Vs Code</li>
-              <li>Figma</li>
-              <li>Vercel</li>
-              <li>Supabase</li>
-            </ul>
-          </div>
+          <section id="skills" className="block">
+            {/* <p className="code-comment">// skills.json</p> */}
+            <h2>ทักษะ</h2>
+            <pre className="json-block">
+              <code>
+                {"{"}
+                {"\n"}  <span className="json-key">"skills"</span>: [
+                <span className="json-str">"HTML"</span>,{" "}
+                <span className="json-str">"CSS"</span>,{" "}
+                <span className="json-str">"JavaScript"</span>,{" "}
+                <span className="json-str">"Next.js"</span>,{" "}
+                <span className="json-str">"Tailwind CSS"</span>,{" "}
+                <span className="json-str">"Vue.js"</span>],
+                {"\n"}  <span className="json-key">"tools"</span>: [
+                <span className="json-str">"GitHub"</span>,{" "}
+                <span className="json-str">"VS Code"</span>,{" "}
+                <span className="json-str">"Figma"</span>,{" "}
+                <span className="json-str">"Vercel"</span>,{" "}
+                <span className="json-str">"Supabase"</span>]
+                {"\n"}
+                {"}"}
+              </code>
+            </pre>
+          </section>
 
-          {/* <div className="skill-group">
-            <h3 className="skill-subtitle">Soft Skills</h3>
-            <ul className="skill-list soft">
-              <li>[ทักษะ 1 เช่น การทำงานเป็นทีม]</li>
-              <li>[ทักษะ 2 เช่น การสื่อสาร]</li>
-              <li>[ทักษะ 3 เช่น การแก้ปัญหา]</li>
-            </ul>
-          </div> */}
+          <section id="soft-skills" className="block">
+            {/* <p className="code-comment">// soft-skills.ts</p> */}
 
-          <section className="education">
-            <h2>ประวัติการศึกษา</h2>
-            <div className="timeline">
-              <div className="timeline-item">
-                <div className="timeline-head">
-                  <h3>มหาวิทยาลัยราชภัฏพระนคร</h3>
-                  <span className="timeline-date">2566 - ปัจจุบัน</span>
-                </div>
-                <p className="timeline-company">คณะวิทยาศาสตร์และเทคโนโลยี / สาขาวิทยาการคอมพิวเตอร์</p>
-                <p className="timeline-company">GPA 3.40</p>
-              </div>
+            <h2 className="section-title">ทักษะการทำงาน</h2>
 
-              <div className="timeline-item">
-                <div className="timeline-head">
-                  <h3>โรงเรียนดอนเมืองทหารอากาศบำรุง</h3>
-                  <span className="timeline-date">2564 - 2566</span>
-                </div>
-                <p className="timeline-company">ศิลป์ภาษาจีน</p>
-                <p className="timeline-company"> GPA 3.74</p>
-              </div>
+            <div className="tag-row">
+              {[
+                "การทำงานเป็นทีม",
+                "การสื่อสาร",
+                "การแก้ปัญหาเฉพาะหน้า",
+                "ความรับผิดชอบ",
+                "การปรับตัว",
+              ].map((s) => (
+                <span className="tag" key={s}>
+                  {s}
+                </span>
+              ))}
             </div>
           </section>
-        </section>
 
-        <section className="experience">
-          <h2>ประสบการณ์ทำงาน</h2>
-          <div className="timeline">
-            <div className="timeline-item">
-              <div className="timeline-head">
-                <h3>7-11</h3>
-                <span className="timeline-date">เม.ย. 2569 - มิ.ย. 2569</span>
+
+          <section id="education" className="block">
+            {/* <p className="code-comment">// education.md</p> */}
+            <h2>ประวัติการศึกษา</h2>
+
+            <div className="log-entry">
+              <div className="log-head">
+                <span className="prompt-arrow">&gt;</span>
+                <h3>มหาวิทยาลัยราชภัฏพระนคร</h3>
+                <span className="log-date">2566 - ปัจจุบัน</span>
               </div>
-              <p className="timeline-company">ตำแหน่งงาน นักศึกษาฝึกงานPT</p>
-              <p>ทำทุกอย่างที่ได้รับมอบหมายในแต่ละวันครับ ระยะเวลา 3 เดือนครับ</p>
+              <p className="log-meta">คณะวิทยาศาสตร์และเทคโนโลยี / สาขาวิทยาการคอมพิวเตอร์</p>
+              <p className="log-meta">GPA 3.40</p>
             </div>
 
-            <div className="timeline-item">
-              <div className="timeline-head">
-                <h3>7-11</h3>
-                <span className="timeline-date">มี.ค. 2568 - มิ.ย. 2568</span>
+            <div className="log-entry">
+              <div className="log-head">
+                <span className="prompt-arrow">&gt;</span>
+                <h3>โรงเรียนดอนเมืองทหารอากาศบำรุง</h3>
+                <span className="log-date">2564 - 2566</span>
               </div>
-              <p className="timeline-company">ตำแหน่งงาน นักศึกษาฝึกงานPT</p>
-              <p>ทำทุกอย่างที่ได้รับมอบหมายในแต่ละวันครับ ระยะเวลา 4 เดือนครับ</p>
+              <p className="log-meta">ศิลป์ภาษาจีน</p>
+              <p className="log-meta">GPA 3.74</p>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section className="projects">
-          <h2>ผลงาน</h2>
-          <div className="project-grid">
-            <a href="https://my-booking-system-rho.vercel.app/" target="_blank" className="project-card">
-              <h3>เว็บแอปสำหรับจองคิวร้านตัดผม</h3>
-              <p>โปรเจกต์นี้คือ ระบบจองคิวตัดผมอัจฉริยะ ที่ช่วยให้ลูกค้าเลือกทรงผม วัน และเวลาที่ต้องการจองผ่านหน้าเว็บได้ทันที 
-                โดยระบบจะเช็กเวลาที่ว่างให้อัตโนมัติ พร้อมส่งแจ้งเตือนหาช่างตัดผมผ่าน LINE ทันทีที่มีคิวใหม่ครับ</p>
-            </a>
-            
+          <section id="goals" className="block">
+            {/* <p className="code-comment">// goals.todo</p> */}
+            <h2>เป้าหมายการฝึกงาน</h2>
 
-            <a href="ลิงก์โปรเจกต์ 2" target="_blank" className="project-card">
-              <h3>ชื่อโปรเจกต์ 2</h3>
-              <p>อธิบายโปรเจกต์สั้นๆ ว่าทำอะไร ใช้เทคโนโลยีอะไร</p>
-            </a>
+            <div className="todo-group">
+              <p className="todo-title">สิ่งที่คาดหวังจากการฝึกงาน</p>
+              <ul className="todo-list">
+                <li>
+                  <span className="checkbox">[ ]</span> ได้เรียนรู้การทำงานจริงในสายงานพัฒนาเว็บไซต์
+                  ทั้งฝั่ง Front-end และ Back-end
+                </li>
+                <li>
+                  <span className="checkbox">[ ]</span> ได้ฝึกการทำงานร่วมกับทีม
+                  และพร้อมรับฟังคำแนะนำจากรุ่นพี่ในองค์กร
+                </li>
+                <li>
+                  <span className="checkbox">[ ]</span> ได้นำความรู้ที่เรียนมาประยุกต์ใช้กับงานจริง
+                  และพัฒนาทักษะการแก้ปัญหา
+                </li>
+              </ul>
+            </div>
 
-            <a href="ลิงก์โปรเจกต์ 3" target="_blank" className="project-card">
-              <h3>ชื่อโปรเจกต์ 3</h3>
-              <p>อธิบายโปรเจกต์สั้นๆ ว่าทำอะไร ใช้เทคโนโลยีอะไร</p>
-            </a>
-          </div>
-        </section>
+            <div className="todo-group">
+              <p className="todo-title">สิ่งที่บริษัทจะได้รับ</p>
+              <ul className="todo-list">
+                <li>
+                  <span className="checkbox">[x]</span> นักศึกษาฝึกงานที่มีความรับผิดชอบ
+                  ตั้งใจเรียนรู้ และพร้อมรับมอบหมายงาน
+                </li>
+                <li>
+                  <span className="checkbox">[x]</span> กำลังเสริมช่วยงานด้านพัฒนาเว็บไซต์ในช่วงระยะเวลาฝึกงาน
+                </li>
+                <li>
+                  <span className="checkbox">[x]</span> ได้มุมมองและความคิดใหม่ ๆ และความกระตือรือร้นในการเรียนรู้เทคโนโลยีปัจจุบัน
+                </li>
+              </ul>
+            </div>
 
-        <section className="contact">
-          <h2>ติดต่อฉัน</h2>
-          <p>Email: tgzoo7xza@gmail.com</p>
-          <p>โทร: 096-825-1078</p>
-          <p>Line ID: <a href="https://line.me/ti/p/w_s5nB8hX3" target="_blank"  >ติดต่อไลน์</a></p>
+            {/* <p className="code-comment inline-comment">// languages.config</p> */}
+            <div className="lang-block">
+              {LANGS.map((l) => (
+                <div className="lang-row" key={l.code}>
+                  <span className="lang-code">{l.code}</span>
+                  <Bar pct={l.pct} />
+                  <span className="lang-pct">{l.pct}%</span>
+                  <span className="lang-level">{l.level}</span>
+                </div>
+              ))}
+            </div>
+          </section>
 
+          <section id="experience" className="block">
+            {/* <p className="code-comment">// experience.log</p> */}
+            <h2>ประสบการณ์ทำงาน</h2>
 
-          <section className="links">
-            <h2>ลิงก์</h2>
-            <div className="link-grid">
-              {/* <a href="https://linkedin.com/in/[username]" target="_blank" className="link-btn">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                  <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.6v1.7h.05c.5-.9 1.7-1.9 3.5-1.9 3.7 0 4.4 2.4 4.4 5.6V21h-4v-5.7c0-1.4 0-3.1-1.9-3.1-1.9 0-2.2 1.5-2.2 3v5.8H9z" />
-                </svg>
-                LinkedIn
-              </a> */}
+            <div className="git-entry">
+              {/* <p className="git-hash">
+                commit <span>a3f9c2d</span>
+              </p> */}
+              <p className="git-meta">Date: เม.ย. 2569 - มิ.ย. 2569</p>
+              <p className="git-msg">7-11 — นักศึกษาฝึกงาน PT (ระยะเวลา 3 เดือน)</p>
+              <p className="git-body">ทำทุกอย่างที่ได้รับมอบหมายในแต่ละวันครับ</p>
+            </div>
 
+            <div className="git-entry">
+              {/* <p className="git-hash">
+                commit <span>7f3b881</span>
+              </p> */}
+              <p className="git-meta">Date: มี.ค. 2568 - มิ.ย. 2568</p>
+              <p className="git-msg">7-11 — นักศึกษาฝึกงาน PT (ระยะเวลา 4 เดือน)</p>
+              <p className="git-body">ทำทุกอย่างที่ได้รับมอบหมายในแต่ละวันครับ</p>
+            </div>
+          </section>
+
+          <section id="projects" className="block">
+            {/* <p className="code-comment">// projects/</p> */}
+            <h2>ผลงาน</h2>
+
+            <div className="file-grid">
+
+              <a
+                href="https://my-booking-system-rho.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="file-card"
+              >
+                {/* <p className="file-path">~/projects/booking-system</p> */}
+                <h3>เว็บแอปสำหรับจองคิวร้านตัดผม</h3>
+                <p>
+                  ระบบจองคิวตัดผมอัจฉริยะ ที่ช่วยให้ลูกค้าเลือกทรงผม วัน และเวลาที่ต้องการจองผ่านหน้าเว็บได้ทันที
+                  โดยระบบจะเช็กเวลาที่ว่างให้อัตโนมัติ พร้อมส่งแจ้งเตือนหาช่างตัดผมผ่าน LINE ทันทีที่มีคิวใหม่
+                </p>
+                <span className="file-status">● live</span>
+              </a>
+
+              <a
+                href="https://github.com/tgzoo7xza/my-vue-app-otop"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="file-card"
+              >
+                {/* <p className="file-path">~/projects/otop-shop</p> */}
+                <h3>เว็บขายสินค้า OTOP</h3>
+                <p>
+                  เว็บไซต์จำหน่ายสินค้า OTOP พัฒนาด้วย Vue.js, Node.js, Express และ MySQL
+                  รองรับระบบสมาชิก ระบบร้านค้า ตะกร้าสินค้า การสั่งซื้อ และหน้าผู้ดูแลระบบ
+                </p>
+                <span className="file-status">● repo</span>
+              </a>
+
+              <a
+                href="#"
+                className="file-card"
+              >
+                {/* <p className="file-path">~/projects/project-3</p> */}
+                <h3>ชื่อโปรเจกต์ 3</h3>
+                <p>อธิบายโปรเจกต์สั้น ๆ ว่าทำอะไร ใช้เทคโนโลยีอะไร</p>
+                <span className="file-status">● repo</span>
+              </a>
+
+            </div>
+          </section>
+
+          <section id="contact" className="block">
+            {/* <p className="code-comment">// contact.sh</p> */}
+            <h2>ติดต่อฉัน</h2>
+            <div className="shell-block">
+              <p>
+                <span className="prompt-dollar"></span>E-mail
+              </p>
+              <p className="shell-out">tgzoo7xza@gmail.com</p>
+              <p>
+                <span className="prompt-dollar"></span>Phone
+              </p>
+              <p className="shell-out">096-825-1078</p>
+              <p>
+                <span className="prompt-dollar"></span>Line
+              </p>
+              <p className="shell-out">
+                <a href="https://line.me/ti/p/w_s5nB8hX3" target="_blank">
+                ติดต่อไลน์
+                </a>
+              </p>
+            </div>
+
+            <div className="link-row">
               <a href="https://github.com/tgzoo7xza" target="_blank" className="link-btn">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
                   <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-1.94c-3.2.7-3.88-1.54-3.88-1.54-.52-1.34-1.28-1.7-1.28-1.7-1.04-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.08-.12-.3-.52-1.5.11-3.12 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.5 3.17-1.18 3.17-1.18.64 1.62.24 2.82.12 3.12.74.8 1.18 1.82 1.18 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.15v3.18c0 .3.2.66.79.55A10.98 10.98 0 0 0 23.5 12c0-6.35-5.15-11.5-11.5-11.5z" />
                 </svg>
                 GitHub
               </a>
-
               <a href="/" target="_blank" className="link-btn resume">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                   <path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3" />
                 </svg>
@@ -185,8 +317,17 @@ export default function Home() {
               </a>
             </div>
           </section>
-        </section>
-      </main>
-    </div>
+        </main >
+      </div >
+
+      <footer className="statusbar">
+        {/* <span className="status-item branch">⎇ main</span>
+        <span className="status-item">UTF-8</span>
+        <span className="status-item">TSX</span> */}
+        <button className="status-item theme-toggle" onClick={toggleTheme}>
+          {theme === "light" ? "🌙 dark" : "☀️ light"}
+        </button>
+      </footer>
+    </div >
   );
 }
