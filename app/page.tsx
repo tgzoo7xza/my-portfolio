@@ -8,7 +8,7 @@ const LANGS = [
   { code: "en", name: "ภาษาอังกฤษ", level: "พอใช้", pct: 50 },
 ];
 
-const GUTTER_LINES = Array.from({ length: 113 }, (_, i) => i + 1);
+const GUTTER_LINES = Array.from({ length: 100 }, (_, i) => i + 1);
 
 function Bar({ pct }: { pct: number }) {
   const total = 20;
