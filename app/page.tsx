@@ -3,12 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 
-const LANGS = [
-  { code: "th", name: "ภาษาไทย", level: "ดีมาก", pct: 100 },
-  { code: "en", name: "ภาษาอังกฤษ", level: "พอใช้", pct: 50 },
-];
-
-const GUTTER_LINES = Array.from({ length: 100 }, (_, i) => i + 1);
+const GUTTER_LINES = Array.from({ length: 95 }, (_, i) => i + 1);
 
 function Bar({ pct }: { pct: number }) {
   const total = 20;
@@ -50,7 +45,6 @@ export default function Home() {
 
         <main className="ide-main">
           <section id="home" className="block hero">
-            {/* <p className="code-comment">// home.tsx</p> */}
             <Image
               src="/T1.jpg"
               alt="รูปโปรไฟล์"
@@ -59,18 +53,15 @@ export default function Home() {
               className="avatar"
             />
             <h1>
-              {/* <span className="kw">const</span> <span className="var">ผู้พัฒนา</span>{" "} */}
-              {/* <span className="op">=</span>  */}
               <span className="str">สวัสดีครับ</span>
             </h1>
             <p className="prompt-line">
-              นักศึกษาฝึกงาน / สาขาวิทยาการคอมพิวเตอร์{" "}
+              นักศึกษาฝึกงาน / สาขาวิทยาการคอมพิวเตอร์{""}
               <span className="cursor-blink">▊</span>
             </p>
           </section>
 
           <section id="about" className="block">
-            {/* <p className="code-comment">// about.tsx</p> */}
             <h2>เกี่ยวกับฉัน</h2>
             <p className="template-string">
               <span className="tick">`</span>
@@ -86,7 +77,6 @@ export default function Home() {
           </section>
 
           <section id="skills" className="block">
-            {/* <p className="code-comment">// skills.json</p> */}
             <h2>ทักษะ</h2>
             <pre className="json-block">
               <code>
@@ -111,17 +101,15 @@ export default function Home() {
           </section>
 
           <section id="soft-skills" className="block">
-            {/* <p className="code-comment">// soft-skills.ts</p> */}
-
             <h2 className="section-title">ทักษะการทำงาน</h2>
 
             <div className="tag-row">
               {[
-                "การทำงานเป็นทีม",
-                "การสื่อสาร",
-                "การแก้ปัญหาเฉพาะหน้า",
+                "การทำงานเป็นทีมได้",
+                "มีการสื่อสารกับเพื่อนร่วมงานได้ค่อยข้างดี",
+                "การแก้ปัญหาเฉพาะหน้าพอได้",
                 "ความรับผิดชอบ",
-                "การปรับตัว",
+                "มีการปรับตัวอยู่ตลอดเวลา",
               ].map((s) => (
                 <span className="tag" key={s}>
                   {s}
@@ -132,7 +120,6 @@ export default function Home() {
 
 
           <section id="education" className="block">
-            {/* <p className="code-comment">// education.md</p> */}
             <h2>ประวัติการศึกษา</h2>
 
             <div className="log-entry">
@@ -157,7 +144,6 @@ export default function Home() {
           </section>
 
           <section id="goals" className="block">
-            {/* <p className="code-comment">// goals.todo</p> */}
             <h2>เป้าหมายการฝึกงาน</h2>
 
             <div className="todo-group">
@@ -194,36 +180,18 @@ export default function Home() {
               </ul>
             </div>
 
-            {/* <p className="code-comment inline-comment">// languages.config</p> */}
-            <div className="lang-block">
-              {LANGS.map((l) => (
-                <div className="lang-row" key={l.code}>
-                  <span className="lang-code">{l.code}</span>
-                  <Bar pct={l.pct} />
-                  <span className="lang-pct">{l.pct}%</span>
-                  <span className="lang-level">{l.level}</span>
-                </div>
-              ))}
-            </div>
           </section>
 
           <section id="experience" className="block">
-            {/* <p className="code-comment">// experience.log</p> */}
             <h2>ประสบการณ์ทำงาน</h2>
 
             <div className="git-entry">
-              {/* <p className="git-hash">
-                commit <span>a3f9c2d</span>
-              </p> */}
               <p className="git-meta">Date: เม.ย. 2569 - มิ.ย. 2569</p>
               <p className="git-msg">7-11 — นักศึกษาฝึกงาน PT (ระยะเวลา 3 เดือน)</p>
               <p className="git-body">ทำทุกอย่างที่ได้รับมอบหมายในแต่ละวันครับ</p>
             </div>
 
             <div className="git-entry">
-              {/* <p className="git-hash">
-                commit <span>7f3b881</span>
-              </p> */}
               <p className="git-meta">Date: มี.ค. 2568 - มิ.ย. 2568</p>
               <p className="git-msg">7-11 — นักศึกษาฝึกงาน PT (ระยะเวลา 4 เดือน)</p>
               <p className="git-body">ทำทุกอย่างที่ได้รับมอบหมายในแต่ละวันครับ</p>
@@ -231,7 +199,6 @@ export default function Home() {
           </section>
 
           <section id="projects" className="block">
-            {/* <p className="code-comment">// projects/</p> */}
             <h2>ผลงาน</h2>
 
             <div className="file-grid">
@@ -242,7 +209,6 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="file-card"
               >
-                {/* <p className="file-path">~/projects/booking-system</p> */}
                 <h3>เว็บแอปสำหรับจองคิวร้านตัดผม</h3>
                 <p>
                   ระบบจองคิวตัดผมอัจฉริยะ ที่ช่วยให้ลูกค้าเลือกทรงผม วัน และเวลาที่ต้องการจองผ่านหน้าเว็บได้ทันที
@@ -257,7 +223,6 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="file-card"
               >
-                {/* <p className="file-path">~/projects/otop-shop</p> */}
                 <h3>เว็บขายสินค้า OTOP</h3>
                 <p>
                   เว็บไซต์จำหน่ายสินค้า OTOP พัฒนาด้วย Vue.js, Node.js, Express และ MySQL
@@ -267,20 +232,59 @@ export default function Home() {
               </a>
 
               <a
-                href="#"
+                href="https://www.figma.com/design/ziiqSQaf0yOekRhMee9wTe/Untitled?node-id=0-1&p=f&t=1KlajzTYQlZnpmdZ-0#"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="file-card"
               >
-                {/* <p className="file-path">~/projects/project-3</p> */}
-                <h3>ชื่อโปรเจกต์ 3</h3>
-                <p>อธิบายโปรเจกต์สั้น ๆ ว่าทำอะไร ใช้เทคโนโลยีอะไร</p>
-                <span className="file-status">● repo</span>
+                <h3>ออกแบบ ui/ux และ prototype แอปร้านขายไก่ Chicken inwza</h3>
+                <p>ออกแบบ UI/UXและprototype สำหรับแอปร้านขายไก่ Chicken inwza บน figma 
+                  ทำร่วมกับเพื่อนอีก 7 คน โดยแบ่งหน้าที่กันทำคนละส่วน และนำมารวมกันเป็นแอปเดียว
+                </p>
+                <span className="file-status">● prototype</span>
+              </a>
+
+               <a
+                href="https://www.figma.com/design/lryUMK7Q4zMH7xvg29Xtam/Project-Group-%E0%B8%81%E0%B8%A5%E0%B8%B8%E0%B9%88%E0%B8%A1%E0%B8%97%E0%B8%B5%E0%B9%8810-4123103-2?node-id=0-1&t=Pw06LCgkU6Q7MuW9-1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="file-card"
+              >
+                <h3>ออกแบบ ui/ux และ prototype เว็บจองสถานที่พัก Chok i am camping</h3>
+                <p>ออกแบบ UI/UXและprototype สำหรับเว็บจองสถานที่พัก Chok i am camping บน figma
+                  ทำร่วมกับเพื่อนอีก 2 คน โดยแบ่งหน้าที่กันทำคนละส่วน และนำมารวมกันเป็นเว็บเดียว
+                </p>
+                <span className="file-status">● prototype</span>
+              </a>
+
+               <a
+                href="https://5053-app.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="file-card"
+              >
+                <h3>ออกแบบ ui/ux หน้าlanding page เว็บขายน้ำปั่น</h3>
+                <p>ออกแบบ UI/UX สำหรับหน้า landing page เว็บขายน้ำปั่น เป็นมินิโปรเจกต์ตอนทำแลป 
+                  deployเว็บโดยใช้vercel
+                </p>
+                <span className="file-status">● live</span>
+              </a>
+
+               <a
+                href="#"
+                // target="_blank"
+                // rel="noopener noreferrer"
+                className="file-card"
+              >
+                <h3>p6</h3>
+                <p>..</p>
+                <span className="file-status">● </span>
               </a>
 
             </div>
           </section>
 
           <section id="contact" className="block">
-            {/* <p className="code-comment">// contact.sh</p> */}
             <h2>ติดต่อฉัน</h2>
             <div className="shell-block">
               <p>
@@ -321,9 +325,6 @@ export default function Home() {
       </div >
 
       <footer className="statusbar">
-        {/* <span className="status-item branch">⎇ main</span>
-        <span className="status-item">UTF-8</span>
-        <span className="status-item">TSX</span> */}
         <button className="status-item theme-toggle" onClick={toggleTheme}>
           {theme === "light" ? "🌙 dark" : "☀️ light"}
         </button>

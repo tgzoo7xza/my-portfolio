@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-/* ธีมสว่าง — โทนกระดาษเย็น อ้างอิงสไตล์ editor light theme */
+/* editor light theme */
 .ide[data-theme="light"] {
   --bg: #eef1f6;
   --surface: #ffffff;
@@ -21,7 +21,7 @@
   --cursor: #ff6b4a;
 }
 
-/* ธีมมืด — อ้างอิงสไตล์ editor dark theme (โทน navy) */
+/* editor dark theme  */
 .ide[data-theme="dark"] {
   --bg: #10151d;
   --surface: #161d27;
@@ -527,10 +527,8 @@ a { color: inherit; }
 }
 
 
-
 /* ==========================================================
    RESPONSIVE
-   วางไว้ท้ายไฟล์ CSS
 ========================================================== */
 
 /* ---------- Tablet ---------- */
