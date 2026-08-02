@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 
-const GUTTER_LINES = Array.from({ length: 95 }, (_, i) => i + 1);
+const GUTTER_LINES = Array.from({ length: 100 }, (_, i) => i + 1);
 
 function Bar({ pct }: { pct: number }) {
   const total = 20;
@@ -136,7 +136,7 @@ export default function Home() {
               <div className="log-head">
                 <span className="prompt-arrow">&gt;</span>
                 <h3>โรงเรียนดอนเมืองทหารอากาศบำรุง</h3>
-                <span className="log-date">2564 - 2566</span>
+                <span className="log-date">2563 - 2565</span>
               </div>
               <p className="log-meta">ศิลป์ภาษาจีน</p>
               <p className="log-meta">GPA 3.74</p>
@@ -204,29 +204,29 @@ export default function Home() {
             <div className="file-grid">
 
               <a
-                href="https://my-booking-system-rho.vercel.app/"
+                href="https://github.com/tgzoo7xza/my-booking-system"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="file-card"
               >
                 <h3>เว็บแอปสำหรับจองคิวร้านตัดผม</h3>
                 <p>
-                  ระบบจองคิวตัดผมอัจฉริยะ ที่ช่วยให้ลูกค้าเลือกทรงผม วัน และเวลาที่ต้องการจองผ่านหน้าเว็บได้ทันที
-                  โดยระบบจะเช็กเวลาที่ว่างให้อัตโนมัติ พร้อมส่งแจ้งเตือนหาช่างตัดผมผ่าน LINE ทันทีที่มีคิวใหม่
+                  ระบบจองคิวตัดผมออนไลน์แบบ Step-by-Step ที่ช่วยให้ลูกค้าสามารถเลือกทรงผม 
+                  เลือกวันและเวลาที่สะดวก พร้อมระบบป้องกันการจองคิวซ้ำ และส่งแจ้งเตือนไปยังช่างตัดผมผ่าน 
+                  LINE Notify แบบ Real-time
                 </p>
-                <span className="file-status">● live</span>
+                <span className="file-status">● repo</span>
               </a>
 
               <a
-                href="https://github.com/tgzoo7xza/my-vue-app-otop"
+                href="https://github.com/tgzoo7xza/5053-app"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="file-card"
               >
-                <h3>เว็บขายสินค้า OTOP</h3>
-                <p>
-                  เว็บไซต์จำหน่ายสินค้า OTOP พัฒนาด้วย Vue.js, Node.js, Express และ MySQL
-                  รองรับระบบสมาชิก ระบบร้านค้า ตะกร้าสินค้า การสั่งซื้อ และหน้าผู้ดูแลระบบ
+                <h3>ออกแบบ ui/ux หน้าlanding page เว็บขายน้ำปั่น</h3>
+                <p>ออกแบบ UI/UX สำหรับหน้า landing page เว็บขายน้ำปั่น เป็นมินิโปรเจกต์ตอนทำแลป
+                  deployเว็บโดยใช้vercelครับ
                 </p>
                 <span className="file-status">● repo</span>
               </a>
@@ -237,14 +237,14 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="file-card"
               >
-                <h3>ออกแบบ ui/ux และ prototype แอปร้านขายไก่ Chicken inwza</h3>
-                <p>ออกแบบ UI/UXและprototype สำหรับแอปร้านขายไก่ Chicken inwza บน figma 
-                  ทำร่วมกับเพื่อนอีก 7 คน โดยแบ่งหน้าที่กันทำคนละส่วน และนำมารวมกันเป็นแอปเดียว
+                <h3>ออกแบบ ui/ux แอปร้านขายไก่</h3>
+                <p>ออกแบบ UI/UX  สำหรับแอปร้านขายไก่ บน figma
+                  ทำร่วมกับเพื่อนอีก 5 คน โดยแบ่งหน้าที่กันทำคนละส่วน และนำมารวมกันเป็นแอปเดียวครับ
                 </p>
-                <span className="file-status">● prototype</span>
+                <span className="file-status">● ui/ux</span>
               </a>
 
-               <a
+              <a
                 href="https://www.figma.com/design/lryUMK7Q4zMH7xvg29Xtam/Project-Group-%E0%B8%81%E0%B8%A5%E0%B8%B8%E0%B9%88%E0%B8%A1%E0%B8%97%E0%B8%B5%E0%B9%8810-4123103-2?node-id=0-1&t=Pw06LCgkU6Q7MuW9-1"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -252,33 +252,9 @@ export default function Home() {
               >
                 <h3>ออกแบบ ui/ux และ prototype เว็บจองสถานที่พัก Chok i am camping</h3>
                 <p>ออกแบบ UI/UXและprototype สำหรับเว็บจองสถานที่พัก Chok i am camping บน figma
-                  ทำร่วมกับเพื่อนอีก 2 คน โดยแบ่งหน้าที่กันทำคนละส่วน และนำมารวมกันเป็นเว็บเดียว
+                  ทำร่วมกับเพื่อนอีก 2 คน โดยแบ่งหน้าที่กันทำคนละส่วน และนำมารวมกันเป็นเว็บเดียวครับ
                 </p>
-                <span className="file-status">● prototype</span>
-              </a>
-
-               <a
-                href="https://5053-app.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="file-card"
-              >
-                <h3>ออกแบบ ui/ux หน้าlanding page เว็บขายน้ำปั่น</h3>
-                <p>ออกแบบ UI/UX สำหรับหน้า landing page เว็บขายน้ำปั่น เป็นมินิโปรเจกต์ตอนทำแลป 
-                  deployเว็บโดยใช้vercel
-                </p>
-                <span className="file-status">● live</span>
-              </a>
-
-               <a
-                href="#"
-                // target="_blank"
-                // rel="noopener noreferrer"
-                className="file-card"
-              >
-                <h3>p6</h3>
-                <p>..</p>
-                <span className="file-status">● </span>
+                <span className="file-status">● ux/ui</span>
               </a>
 
             </div>
@@ -300,7 +276,7 @@ export default function Home() {
               </p>
               <p className="shell-out">
                 <a href="https://line.me/ti/p/w_s5nB8hX3" target="_blank">
-                ติดต่อไลน์
+                  ติดต่อไลน์
                 </a>
               </p>
             </div>
@@ -312,7 +288,7 @@ export default function Home() {
                 </svg>
                 GitHub
               </a>
-              <a href="/" target="_blank" className="link-btn resume">
+              <a href="/portfolio.pdf" target="_blank" className="link-btn resume">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                   <path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3" />
