@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 
-const GUTTER_LINES = Array.from({ length: 100 }, (_, i) => i + 1);
+const GUTTER_LINES = Array.from({ length: 113 }, (_, i) => i + 1);
 
 function Bar({ pct }: { pct: number }) {
   const total = 20;
@@ -26,6 +26,7 @@ export default function Home() {
         <nav className="ide-tabs">
           <a className="ide-tab" href="#home">หน้าแรก</a>
           <a className="ide-tab" href="#about">เกี่ยวกับฉัน</a>
+          <a className="ide-tab" href="#history">ประวัติส่วนตัว</a>
           <a className="ide-tab" href="#skills">ทักษะ</a>
           <a className="ide-tab" href="#soft-skills">ทักษะการทำงาน</a>
           <a className="ide-tab" href="#education">การศึกษา</a>
@@ -72,6 +73,19 @@ export default function Home() {
               พร้อมเรียนรู้จากประสบการณ์ใหม่ ๆ
               สามารถปรับตัวให้เข้ากับการทำงานร่วมกับผู้อื่นได้ดี
               และหวังว่าการฝึกงานครั้งนี้จะทำให้ผมพัฒนาตัวได้อีกขั้นนึงครับ
+              <span className="tick">`</span>
+            </p>
+          </section>
+
+          <section id="history" className="block">
+            <h2>ประวัติส่วนตัว</h2>
+            <p className="template-string">
+              <span className="tick">`</span>
+              <p>ชื่อ: นาย ธนดิลกชัย ครุฑพุ่ม</p>
+              <p>ชื่อเล่น: แต้ม</p>
+              <p>อายุ: 21 ปี</p>
+              <p>วันเกิด: 22 พ.ค 2548</p>
+              <p>สัญชาติ: ไทย</p>
               <span className="tick">`</span>
             </p>
           </section>
