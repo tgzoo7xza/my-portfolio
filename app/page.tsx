@@ -101,11 +101,13 @@ export default function Home() {
                 <span className="json-str">"JavaScript"</span>,{" "}
                 <span className="json-str">"Next.js"</span>,{" "}
                 <span className="json-str">"Tailwind CSS"</span>,{" "}
-                <span className="json-str">"Vue.js"</span>],
+                <span className="json-str">"Vue.js"</span>]
                 {"\n"}  <span className="json-key">"Backend"</span>: [
-                <span className="json-str">"MYSQL"</span>,{" "}
-                <span className="json-str">"PHP"</span>],
-                {"\n"}  <span className="json-key">"tools"</span>: [
+                <span className="json-str">"Node.js"</span>,{" "}
+                <span className="json-str">"PHP"</span>]
+                 {"\n"}  <span className="json-key">"Databases"</span>: [
+                <span className="json-str">"MySQL"</span>]
+                {"\n"}  <span className="json-key">"tools"</span>: [  
                 <span className="json-str">"GitHub"</span>,{" "}
                 <span className="json-str">"VS Code"</span>,{" "}
                 <span className="json-str">"Figma"</span>,{" "}
