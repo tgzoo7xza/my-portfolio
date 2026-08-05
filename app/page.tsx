@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 
-const GUTTER_LINES = Array.from({ length: 113 }, (_, i) => i + 1);
+const GUTTER_LINES = Array.from({ length: 114 }, (_, i) => i + 1);
 
 function Bar({ pct }: { pct: number }) {
   const total = 20;
@@ -54,7 +54,7 @@ export default function Home() {
               className="avatar"
             />
             <h1>
-              <span className="str">สวัสดีครับ</span>
+              <span className="str">Web Application Developer</span>
             </h1>
             <p className="prompt-line">
               นักศึกษาฝึกงาน / สาขาวิทยาการคอมพิวเตอร์{""}
@@ -95,18 +95,21 @@ export default function Home() {
             <pre className="json-block">
               <code>
                 {"{"}
-                {"\n"}  <span className="json-key">"skills"</span>: [
+                {"\n"}  <span className="json-key">"Frontend"</span>: [
                 <span className="json-str">"HTML"</span>,{" "}
                 <span className="json-str">"CSS"</span>,{" "}
                 <span className="json-str">"JavaScript"</span>,{" "}
                 <span className="json-str">"Next.js"</span>,{" "}
                 <span className="json-str">"Tailwind CSS"</span>,{" "}
                 <span className="json-str">"Vue.js"</span>],
+                {"\n"}  <span className="json-key">"Backend"</span>: [
+                <span className="json-str">"MYSQL"</span>,{" "}
+                <span className="json-str">"PHP"</span>],
                 {"\n"}  <span className="json-key">"tools"</span>: [
                 <span className="json-str">"GitHub"</span>,{" "}
                 <span className="json-str">"VS Code"</span>,{" "}
                 <span className="json-str">"Figma"</span>,{" "}
-                <span className="json-str">"Vercel"</span>,{" "}
+                <span className="json-str">"XAMPP"</span>,{" "}
                 <span className="json-str">"Supabase"</span>]
                 {"\n"}
                 {"}"}
@@ -229,7 +232,7 @@ export default function Home() {
                   เลือกวันและเวลาที่สะดวก พร้อมระบบป้องกันการจองคิวซ้ำ และส่งแจ้งเตือนไปยังช่างตัดผมผ่าน 
                   LINE Notify แบบ Real-time
                 </p>
-                <span className="file-status">● repo</span>
+                <span className="file-status">● repo-live demo</span>
               </a>
 
               <a
@@ -242,7 +245,7 @@ export default function Home() {
                 <p>ออกแบบ UI/UX สำหรับหน้า landing page เว็บขายน้ำปั่น เป็นมินิโปรเจกต์ตอนทำแลป
                   deployเว็บโดยใช้vercelครับ
                 </p>
-                <span className="file-status">● repo</span>
+                <span className="file-status">● repo-live demo</span>
               </a>
 
               <a
